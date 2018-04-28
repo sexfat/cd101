@@ -66,14 +66,24 @@ a {
    @include margin-auto();
 }
 
-
-
 .box2 {
     width: 500px;
     @include margin-auto-color(#f00);
  }
 
 
+ @mixin margins ($top , $left , $right) {
+   margin-top: $top;
+   margin-left: $left;
+   margin-right: $right;
+ } 
 
 
+.boxleft-20 {
+    @include margins(10px , 20px , 30px);
+} 
 
+
+.boxleft-30 {
+    @include margins(10px , 30px, 40px);
+} 
