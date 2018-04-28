@@ -1,0 +1,62 @@
+@import "var";
+@import "plugin";
+
+
+
+
+.box {
+    font-size: $font-size;
+    width: $font-size;
+    content: $content;
+    font-family: $font-family-sans-serif;
+}
+
+.box2 {
+    font-size: $font-size;
+}
+
+// a:hover {}
+
+// a:active {}
+
+// a::before {}
+
+a {
+    &:hover {
+        color: #fff;
+    }
+    &:active {
+        color: #f00
+    }
+    &::before {
+        color: #f00
+    }
+}
+
+
+
+//nesting
+
+.wrapper {
+    color: red;
+    .sidebar {
+        width: 10px;
+        .testarea {
+            background-color: #f00;
+        }
+        .box {
+            width: 20px;
+            font-size: $font-size;
+            span {
+                margin: 10px;
+                color: blue;
+            }
+        }
+    }
+}
+
+
+
+
+
+

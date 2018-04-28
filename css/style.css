@@ -1,0 +1,36 @@
+.btn {
+  width: 200px; }
+
+.btn-lg {
+  width: 400px; }
+
+.box {
+  font-size: 200px;
+  width: 200px;
+  content: "hi";
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+.box2 {
+  font-size: 200px; }
+
+a:hover {
+  color: #fff; }
+
+a:active {
+  color: #f00; }
+
+a::before {
+  color: #f00; }
+
+.wrapper {
+  color: red; }
+  .wrapper .sidebar {
+    width: 10px; }
+    .wrapper .sidebar .testarea {
+      background-color: #f00; }
+    .wrapper .sidebar .box {
+      width: 20px;
+      font-size: 200px; }
+      .wrapper .sidebar .box span {
+        margin: 10px;
+        color: blue; }
