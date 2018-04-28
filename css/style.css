@@ -34,3 +34,14 @@ a::before {
       .wrapper .sidebar .box span {
         margin: 10px;
         color: blue; }
+
+.box {
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto; }
+
+.box2 {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #f00; }
