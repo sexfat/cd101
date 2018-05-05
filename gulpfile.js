@@ -1,6 +1,9 @@
 //套件引入
 var gulp = require('gulp');
 var sass = require('gulp-sass');
+var browserSync = require('browser-sync').create();
+var reload      = browserSync.reload;
+
 
 // sass 編譯函式
 gulp.task('sass', function () {
@@ -10,8 +13,25 @@ gulp.task('sass', function () {
 });
 
 // watch 監看變動函式 
-gulp.task('watch', function () {
-  gulp.watch('./sass/*.scss', ['sass']);
+// gulp.task('watch', function () {
+//   gulp.watch(['./sass/*.scss' ,'./sass/**/*.scss' , './sass/**/**/*.scss'], ['sass']);
+// });
+
+
+gulp.task('default', ['sass'], function () {
+
+  browserSync.init({
+    server: {
+      //根目錄
+      baseDir: "./",
+      index: "index.html"
+    }
+  });
+
+  gulp.watch(["sass/*.scss"  , "sass/**/*.scss"], ['sass']).on('change', reload);
+  gulp.watch("*.html").on('change', reload);
+  gulp.watch("js/*.js").on('change', reload);
+  // gulp.watch("images/*").on('change', reload);
 });
 
 
@@ -21,5 +41,5 @@ gulp.task('watch', function () {
 
 
 
-//執行函示
-gulp.task('default' ,['sass' , 'watch']);
+// //執行函示
+// gulp.task('default' ,['sass' , 'watch']);

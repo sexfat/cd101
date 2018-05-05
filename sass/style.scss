@@ -1,8 +1,12 @@
 @import "var";
 @import "plugin";
+body {
+    background-color: red;
+}
+
 .box {
     font-size: $font-size;
-    width: $font-size;
+    width: 1400px;
     content: $content;
     font-family: $font-family-sans-serif;
 }
@@ -25,7 +29,7 @@ a {
 
 //nesting
 .wrapper {
-    color: red;
+    background-color: red;
     .sidebar {
         width: 10px;
         .testarea {
@@ -35,8 +39,9 @@ a {
             width: 20px;
             font-size: $font-size;
             span {
-                margin: 10px;
-                color: blue;
+                display: block;
+                margin-top: 600px;
+                color: rgb(15, 228, 43);
             }
         }
     }
@@ -109,8 +114,7 @@ a {
 
 .box-blue {
     background-color: blue; // @include boxs();
-    @extend .boxs;
-    @extend div:hover;
+    @extend .boxs; // @extend div: hover;
     @extend a;
     @extend #obj;
 }
@@ -143,9 +147,166 @@ a {
 }
 
 .box-test {
-  @extend %botton ;
+    @extend %botton;
 }
 
 .box-02 {
-    @extend %botton ;
+    @extend %botton;
 }
+
+// 運算
+.box6 {
+    width: 100 + 10em;
+    height: 100px - 10px;
+    margin: (10px - 5) * 10;
+    padding: (40 / 2) + px; // font : 10px / 20px ;
+}
+
+.box7 {
+    //無條件捨去  
+    font-size: floor( 3.4px);
+    width: round(4.5px);
+    height: ceil(4.7px);
+}
+
+$font-base-size: 14px;
+body {
+    font-size: $font-base-size;
+}
+
+h1 {
+    font-size: ceil($font-base-size * 4.4);
+}
+
+h2 {
+    font-size: ceil($font-base-size * 3.4);
+}
+
+h3 {
+    font-size: ceil($font-base-size * 2.4);
+}
+
+h4 {
+    font-size: ceil($font-base-size * 1.4);
+}
+
+h5 {
+    font-size: ceil($font-base-size * 1);
+}
+
+@mixin box-widths($num) {
+    @for $i from 1 through $num {
+        .box-#{$i} {
+            width: $i * 1px; // height: $i * 2px;
+        }
+    }
+}
+
+// @include box-widths(10);
+@mixin grid($num) {
+    @for $i from 1 through $num {
+        .col-md-#{$i} {
+            width: floor(($i /$num) * 100%);
+        }
+    }
+}
+
+// @include grid(12);
+@mixin push($attr, $dir, $num) {
+    @for $i from 1 through $num {
+        .push-#{$attr}-#{$dir}-#{$i} {
+            #{$attr}-#{$dir}: $i * 1px;
+        }
+    }
+}
+
+@include push( margin, top, 10);
+@include push( padding, left, 10);
+@mixin imgs($images) {
+    @each $img in $images {
+        .#{$img}-img {
+            background-image: url('images/#{$img}.png');
+            display: block;
+        }
+    }
+}
+
+@include imgs([a1,
+a2,
+a3,
+logo,
+animals]);
+$tem: white;
+//if
+.box-color {
+    @if $tem==blue {
+        background-color: blue;
+    }
+    @else if $tem==yellow {
+        background-color: yellow;
+    }
+    @else {
+        background-color: green;
+    }
+}
+
+$small: 719px;
+$medium-max: 720px;
+$medium-min: 1365px;
+$large : 1366px;
+
+
+
+@mixin rwd ($breakpoint) {
+    @if $breakpoint=="small" {
+        @media all and (max-width: $small) {
+            @content;
+        }
+    }
+    @else if $breakpoint=="medium" {
+        @media all and(max-width: $medium-max) and (min-width: $medium-min) {
+            @content;
+        }
+    }
+    @else if $breakpoint=="desktop" {
+        @media all and (min-width: $large) {
+            @content;
+        }
+    }
+}
+
+@include rwd(desktop){
+
+ .box {
+   width:100px;
+
+ }
+  
+
+
+
+
+
+
+
+}
+
+
+@include rwd(medium){
+
+    .box {
+      width:200px;
+   
+    }
+   }
+
+
+
+   @include rwd(small){
+
+    .box {
+      width:100%;
+   
+    }
+   }
+
