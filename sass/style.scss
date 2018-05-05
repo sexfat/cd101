@@ -1,9 +1,5 @@
 @import "var";
 @import "plugin";
-
-
-
-
 .box {
     font-size: $font-size;
     width: $font-size;
@@ -27,10 +23,7 @@ a {
     }
 }
 
-
-
 //nesting
-
 .wrapper {
     color: red;
     .sidebar {
@@ -49,41 +42,110 @@ a {
     }
 }
 
-@mixin margin-auto(){
+//沒有帶值
+@mixin margin-auto() {
     margin-left: auto;
     margin-right: auto;
-  } 
-
-
-@mixin margin-auto-color($color){
-  margin-left: auto;
-  margin-right: auto;
-  background-color: $color;
-} 
+}
 
 .box {
-   width: 1000px;
-   @include margin-auto();
+    width: 1000px;
+    @include margin-auto();
 }
 
 .box2 {
     width: 500px;
     @include margin-auto-color(#f00);
- }
-
-
- @mixin margins ($top , $left , $right) {
-   margin-top: $top;
-   margin-left: $left;
-   margin-right: $right;
- } 
-
+}
 
 .boxleft-20 {
-    @include margins(10px , 20px , 30px);
-} 
-
+    @include margins(10px, 20px, 30px);
+}
 
 .boxleft-30 {
-    @include margins(10px , 30px, 40px);
-} 
+    @include margins(10px, 30px, 40px);
+}
+
+/* radius */
+
+.btn {
+    @include border_radius (10px);
+}
+
+.btn_wide {
+    @include border_radius (8px);
+    margin: 10px;
+}
+
+.wide {
+    width: 10px;
+}
+
+#box {
+    @include border_radius_n(btn_w, 10px);
+}
+
+@include border_radius_n(btn_blue, 30px, blue);
+@include border_radius_n(btn_green, 20px, green);
+.boxs {
+    width: 100px;
+    height: 200px;
+}
+
+@mixin boxs($num) {
+    width: $num;
+    height: $num * 2;
+}
+
+.box-red {
+    background-color: red;
+    @include boxs(100px); // @extend .boxs;
+}
+
+.box-green {
+    background-color: green;
+    @extend .boxs; // @include boxs();
+}
+
+.box-blue {
+    background-color: blue; // @include boxs();
+    @extend .boxs;
+    @extend div:hover;
+    @extend a;
+    @extend #obj;
+}
+
+div:hover {
+    box-sizing: border-box;
+}
+
+a {
+    color: #f20;
+}
+
+#obj {
+    text-align: center;
+}
+
+// _ - 都可以
+@mixin btn-width($num) {
+    width: $num;
+}
+
+.width {
+    @include btn-width(100px);
+}
+
+//佔位符號
+%botton {
+    width: 400px;
+    background-color: #f40;
+}
+
+.box-test {
+  @extend %botton ;
+}
+
+.box-02 {
+    @extend %botton ;
+}

@@ -5,21 +5,21 @@
   width: 400px; }
 
 .box {
-  font-size: 200px;
-  width: 200px;
-  content: "hi";
+  font-size: 250px;
+  width: 250px;
+  content: "hisssw";
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
 .box2 {
-  font-size: 200px; }
+  font-size: 250px; }
 
-a:hover {
+a:hover, .box-blue:hover {
   color: #fff; }
 
-a:active {
+a:active, .box-blue:active {
   color: #f00; }
 
-a::before {
+a::before, .box-blue::before {
   color: #f00; }
 
 .wrapper {
@@ -30,7 +30,7 @@ a::before {
       background-color: #f00; }
     .wrapper .sidebar .box {
       width: 20px;
-      font-size: 200px; }
+      font-size: 250px; }
       .wrapper .sidebar .box span {
         margin: 10px;
         color: blue; }
@@ -55,3 +55,89 @@ a::before {
   margin-top: 10px;
   margin-left: 30px;
   margin-right: 40px; }
+
+/* radius */
+.btn {
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px; }
+
+.btn_wide {
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  margin: 10px; }
+
+.wide {
+  width: 10px; }
+
+#box .btn_w {
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background-color: red;
+  color: white; }
+  #box .btn_w:hover {
+    background-color: red;
+    color: white; }
+
+.btn_blue {
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+  -webkit-border-radius: 30px;
+  border-radius: 30px;
+  background-color: blue;
+  color: white; }
+  .btn_blue:hover {
+    background-color: blue;
+    color: white; }
+
+.btn_green {
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  background-color: green;
+  color: white; }
+  .btn_green:hover {
+    background-color: green;
+    color: white; }
+
+.boxs, .box-green, .box-blue {
+  width: 100px;
+  height: 200px; }
+
+.box-red {
+  background-color: red;
+  width: 100px;
+  height: 200px; }
+
+.box-green {
+  background-color: green; }
+
+.box-blue {
+  background-color: blue; }
+
+div:hover, .box-blue {
+  box-sizing: border-box; }
+
+a, .box-blue {
+  color: #f20; }
+
+#obj, .box-blue {
+  text-align: center; }
+
+.width {
+  width: 100px; }
+
+.box-test, .box-02 {
+  width: 400px;
+  background-color: #f40; }

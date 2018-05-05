@@ -14,5 +14,12 @@ gulp.task('watch', function () {
   gulp.watch('./sass/*.scss', ['sass']);
 });
 
+
+
+
+
+
+
+
 //執行函示
 gulp.task('default' ,['sass' , 'watch']);

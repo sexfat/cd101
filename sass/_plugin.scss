@@ -1,6 +1,45 @@
 .btn {
-  width: 200px; 
+    width: 200px;
 }
+
 .btn-lg {
-  width: 400px;
+    width: 400px;
+}
+
+@mixin margin-auto-color($color) {
+    margin-left: auto;
+    margin-right: auto;
+    background-color: $color;
+}
+
+@mixin margins ($top, $left, $right) {
+    margin-top: $top;
+    margin-left: $left;
+    margin-right: $right;
+}
+
+// radius
+// 轉譯
+@mixin border_radius($num) {
+    -moz-border-radius: $num;
+    -ms-border-radius: $num;
+    -o-border-radius: $num;
+    -webkit-border-radius: $num;
+    border-radius: $num;
+}
+
+@mixin border_radius_n($classname, $num, $bgc:red, $text-color:white) {
+    .#{$classname} {
+        -moz-border-radius: $num;
+        -ms-border-radius: $num;
+        -o-border-radius: $num;
+        -webkit-border-radius: $num;
+        border-radius: $num;
+        background-color: $bgc;
+        color: $text-color;
+        &:hover {
+            background-color: $bgc;
+            color: $text-color;
+        }
+    }
 }
