@@ -43,3 +43,32 @@
         }
     }
 }
+
+
+
+@mixin responds($breakpoint) {
+    @if $breakpoint=="desktop" {
+        @media all and (min-width: $large) {
+            @content;
+        }
+    }
+    @else if $breakpoint=="medium" {
+        @media all and (min-width: $medium_min) and (max-width:$medium_max) {
+            @content;
+        }
+    }
+    @else if $breakpoint=="moblie" {
+        @media all and (max-width: $small) {
+            @content;
+        }
+    }
+}
+
+
+@mixin grid($num) {
+    @for $i from 1 through $num {
+        .col-md-#{$i} {
+            width: floor(($i /$num) * 100%);
+        }
+    }
+}

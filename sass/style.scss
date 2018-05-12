@@ -1,5 +1,8 @@
 @import "var";
 @import "plugin";
+@import "desktop";
+@import "medium";
+@import "moblie";
 body {
     background-color: red;
 }
@@ -203,13 +206,6 @@ h5 {
 }
 
 // @include box-widths(10);
-@mixin grid($num) {
-    @for $i from 1 through $num {
-        .col-md-#{$i} {
-            width: floor(($i /$num) * 100%);
-        }
-    }
-}
 
 // @include grid(12);
 @mixin push($attr, $dir, $num) {
@@ -250,63 +246,68 @@ $tem: white;
     }
 }
 
-$small: 719px;
-$medium-max: 720px;
-$medium-min: 1365px;
-$large : 1366px;
+// $small: 719px;
+// $medium-max: 720px;
+// $medium-min: 1365px;
+// $large: 1366px;
+// @mixin rwd ($breakpoint) {
+//     @if $breakpoint=="small" {
+//         @media all and (max-width: $small) {
+//             @content;
+//         }
+//     }
+//     @else if $breakpoint=="medium" {
+//         @media all and(max-width: $medium-max) and (min-width: $medium-min) {
+//             @content;
+//         }
+//     }
+//     @else if $breakpoint=="desktop" {
+//         @media all and (min-width: $large) {
+//             @content;
+//         }
+//     }
+// }
 
+// @include rwd(desktop) {
+//     .box {
+//         width: 100px;
+//     }
+// }
 
+// @include rwd(medium) {
+//     .box {
+//         width: 200px;
+//     }
+// }
 
-@mixin rwd ($breakpoint) {
-    @if $breakpoint=="small" {
-        @media all and (max-width: $small) {
-            @content;
-        }
+// @include rwd(small) {
+//     .box {
+//         width: 100%;
+//     }
+// }
+
+$i: 20;
+@while $i>=6 {
+    .box-#{$i} {
+        margin: 10px + $i;
     }
-    @else if $breakpoint=="medium" {
-        @media all and(max-width: $medium-max) and (min-width: $medium-min) {
-            @content;
-        }
-    }
-    @else if $breakpoint=="desktop" {
-        @media all and (min-width: $large) {
-            @content;
-        }
-    }
+    $i: $i - 2;
 }
 
-@include rwd(desktop){
-
- .box {
-   width:100px;
-
- }
-  
-
-
-
-
-
-
-
+@mixin contents ($num) {
+    .box-inner {
+        margin: $num auto;
+    }
+    @content
 }
 
-
-@include rwd(medium){
-
-    .box {
-      width:200px;
-   
+.box-content {
+    @include contents(10px) {
+        &:hover {
+            color: #f20;
+        }
     }
-   }
+    ;
+};
 
-
-
-   @include rwd(small){
-
-    .box {
-      width:100%;
-   
-    }
-   }
 

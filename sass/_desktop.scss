@@ -1,0 +1,9 @@
+//桌機
+@include responds(desktop) {
+  .desktop {
+    font-size: 30px;
+
+  }
+  @include grid(12);
+
+};
