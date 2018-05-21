@@ -318,8 +318,47 @@ h5 {
 .box-6 {
   margin: 16px; }
 
-.box-content .box-inner {
-  margin: 10px auto; }
+.box-content {
+  font-size: 10px; }
+  .box-content .box-inner {
+    margin: 10px auto;
+    font-size: 10px; }
 
-.box-content:hover {
-  color: #f20; }
+.section .box_inner .box_small {
+  background-color: #999; }
+
+.section .box_inner .box_medium {
+  background-color: #666; }
+  .section .box_inner .box_medium .col-md-8 {
+    width: 75%; }
+
+.btn_01 {
+  background-color: #999;
+  border: 1px solid #666;
+  border-radius: 5px;
+  width: 100px;
+  height: 20px;
+  color: #000;
+  text-align: center; }
+  .btn_01:hover {
+    background-color: #858585;
+    border: 1px solid #525252;
+    transition: all 0.3s ease;
+    color: #141414; }
+
+.btn_02 {
+  background-color: #d41b1b;
+  border: 1px solid #640f0f;
+  border-radius: 10px;
+  width: 200px;
+  height: 40px;
+  color: #000; }
+  .btn_02:hover {
+    background-color: #b01616;
+    border: 1px solid #410a0a;
+    transition: all 0.3s ease;
+    color: #141414; }
+
+.btn_color {
+  color: rgba(0, 0, 0, 0.4);
+  background-color: #fa0000; }

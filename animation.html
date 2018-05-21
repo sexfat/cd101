@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/animation.css">
+    <!-- 套件 -->
+    <script src="libs/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="libs/gsap/src/minified/TweenMax.min.js"></script>
+    <!-- parallax -->
+    <script type="text/javascript" src="js/parallax.min.js"></script>
+    <script type="text/javascript" src="libs/Scrollmagic/scrollmagic/minified/ScrollMagic.min.js"></script>
+    <script type="text/javascript" src="libs/Scrollmagic/scrollmagic/minified/plugins/animation.gsap.min.js"></script>
+    <script type="text/javascript" src="libs/Scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min.js"></script>
+    <!-- title -->
+    <title>animation</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="section section_01">
+            <div class="box_01 box">box01</div>
+            <div class="box_02 box">box02</div>
+            <div class="box_03 box">box03</div>
+            <div class="box_04 box">box04</div>
+            <div class="box_05 move box">box05</div>
+            <div class="box_06 move box">box06</div>
+
+            <button id="menu_btn">選單按鈕</button>
+            <h2>選單</h2>
+            <ul id="menu">
+                <li>選單一</li>
+                <li>選單二</li>
+                <li>選單三</li>
+                <li>選單四</li>
+            </ul>
+            <div id="scenes" data-hover-only="false">
+                <div class="big_box box_001" data-depth="0.3">001</div>
+                <div class="big_box box_002" data-depth="0.5">002</div>
+            </div>
+        </div>
+         
+        <div class="section section_02">
+            <div class="box_07 box">box07</div>
+            <div class="box_08 box">box08</div>
+        </div>
+        <div id="section_01"></div>
+        <div class="section section_03">
+            <div class="box_11 box">box11</div>
+            <div class="box_12 box">box12</div>            
+        </div>
+        <div id="section_02"></div>
+        <div class="section section_04">
+                <div class="box_13 box ">box13</div>
+                <div class="box_14 box">box14</div>
+            </div>
+    </div>
+
+
+    <script src="js/animation.js"></script>
+</body>
+
+
+
+</html>

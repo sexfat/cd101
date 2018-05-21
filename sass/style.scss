@@ -245,47 +245,7 @@ $tem: white;
         background-color: green;
     }
 }
-
-// $small: 719px;
-// $medium-max: 720px;
-// $medium-min: 1365px;
-// $large: 1366px;
-// @mixin rwd ($breakpoint) {
-//     @if $breakpoint=="small" {
-//         @media all and (max-width: $small) {
-//             @content;
-//         }
-//     }
-//     @else if $breakpoint=="medium" {
-//         @media all and(max-width: $medium-max) and (min-width: $medium-min) {
-//             @content;
-//         }
-//     }
-//     @else if $breakpoint=="desktop" {
-//         @media all and (min-width: $large) {
-//             @content;
-//         }
-//     }
-// }
-
-// @include rwd(desktop) {
-//     .box {
-//         width: 100px;
-//     }
-// }
-
-// @include rwd(medium) {
-//     .box {
-//         width: 200px;
-//     }
-// }
-
-// @include rwd(small) {
-//     .box {
-//         width: 100%;
-//     }
-// }
-
+//while回圈
 $i: 20;
 @while $i>=6 {
     .box-#{$i} {
@@ -294,20 +254,104 @@ $i: 20;
     $i: $i - 2;
 }
 
-@mixin contents ($num) {
-    .box-inner {
+@mixin contents ($num) {   
+    .box-inner {      
         margin: $num auto;
+        font-size: 10px;
     }
-    @content
+    // @content
 }
 
+
+
+
 .box-content {
-    @include contents(10px) {
-        &:hover {
-            color: #f20;
-        }
-    }
-    ;
+    
+  font-size: 10px;
+   @include contents(10px);
 };
+//css
+// .section .box_inner .box_small {
+//   background-color: #999;
+// }
+
+
+// .section .box_inner .box_medium {
+//     background-color: #666;
+//   }
+  
+
+//   .section .box_inner .box_medium.col-md-8 {
+//     background-color: #666;
+//   }  
+
+
+
+
+//scss
+.section {
+  .box_inner {
+      .box_small {
+        background-color: #999;
+      }
+      .box_medium {
+        background-color: #666;
+        .col-md-8 {
+            width: 75%;
+        }
+      }
+  }
+}
+
+
+@mixin btn($bgc,$border-color,$width,$height,$border-r:null,$color:null){
+
+    background-color: $bgc;
+    border: 1px solid $border-color;
+    border-radius: $border-r;
+    width:  $width;
+    height:  $height;
+    color : $color;
+    &:hover {
+        background-color: darken($bgc , 8%);
+        border: 1px solid  darken($border-color , 8%);
+        transition: all 0.3s ease;
+        color : lighten($color, 8%);
+    }
+    @content;
+}
+
+.btn_01 {
+   @include btn(#999, #666 , 100px, 20px , 5px , #000){
+     text-align: center
+
+
+   }
+}
+
+.btn_02 {
+    @include btn(rgb(212, 27, 27), rgb(100, 15, 15) , 200px, 40px , 10px , #000)
+ }
+
+.btn_color {
+    color : rgba( #000000, 0.4);  
+    background-color:lighten(rgb(148, 0, 0) , 20%);
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
