@@ -1243,3 +1243,4 @@ js
         .addIndicators() // add indicators (requires plugin)
         .addTo(controller);
 ```
+ok
